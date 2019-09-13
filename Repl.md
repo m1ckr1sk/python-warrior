@@ -26,4 +26,5 @@ This will create a new file called player and some instructions.
 Expand the python warrior folder
 Expand the folder with your name followed by -beginner
 Click the folder README for instructions.
+Click run and enter the number 1 and press return
 
