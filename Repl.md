@@ -1,15 +1,18 @@
 # Running in REPL
 
 ## Set up the project
+
 * Visit [https://repl.it/](https://repl.it/)
 * Click +new repl
 * Select Python
-* Place the following into the box https://github.com/m1ckr1sk/python-warrior
+* Place the following into the box
+```https://github.com/m1ckr1sk/python-warrior```
 * Click import from GitHub
 * Expand the Bin folder and open the file called 'pythonwarrior.py'
 * Copy the contents of the file and paste it into main.py
 
 ## Installing packages
+
 * Click the cube called packages on the left column and type in 'jinja2'
 * Select 'Jinja2: a small but fast..'
 * Click the plus sign
