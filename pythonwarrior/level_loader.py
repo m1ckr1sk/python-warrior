@@ -56,5 +56,5 @@ class LevelLoader(object):
 
     @staticmethod
     def _unit_to_constant(name):
-        camel = "".join(map(lambda x: x.capitalize(), str(name).split('_')))
+        camel = "".join([x.capitalize() for x in str(name).split('_')])
         return eval(camel)

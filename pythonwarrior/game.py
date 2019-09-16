@@ -138,7 +138,7 @@ class Game(object):
                 'pythonwarrior/%s directory' % self.profile().directory_name())
 
     def profiles(self):
-        return list(map(lambda profile: Profile.load(profile), self.profile_paths()))
+        return [Profile.load(profile) for profile in self.profile_paths()]
 
     def profile_paths(self):
         return glob.glob(Config.path_prefix + '/pythonwarrior/**/profile.json')
@@ -155,12 +155,13 @@ class Game(object):
         return profile
 
     def towers(self):
-        return list(map(lambda path: Tower(path), self.tower_paths()))
+        return [Tower(path) for path in self.tower_paths()]
 
     def tower_paths(self):
         tower_paths = glob.glob(os.path.normpath(os.path.abspath(__file__) +
                                                  '/../towers/*'))
-        tower_paths = filter(lambda path: os.path.isdir(path), tower_paths)
+        tower_paths = [path for path in tower_paths
+                       if os.path.isdir(path) and '__' not in path]
         return tower_paths
 
     def current_level(self):
@@ -185,8 +186,7 @@ class Game(object):
                             self.profiles() + [['new', 'New Profile']])
         if profile == 'new':
             profile = self.new_profile()
-            if filter(lambda prof: prof.player_path == profile.player_path,
-                      self.profiles()):
+            if [prof for prof in self.profiles() if prof.player_path == profile.player_path]:
                 if UI.ask('Are you sure you want to replace your existing'
                           'profile for this tower?'):
                     UI.puts('Replacing existing profile.')

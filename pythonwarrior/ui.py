@@ -29,7 +29,7 @@ class UI(object):
 
     @staticmethod
     def request(msg):
-        UI.write(msg)
+        UI.puts(msg)
         return UI.gets().rstrip()
 
     @staticmethod

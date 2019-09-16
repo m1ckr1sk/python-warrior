@@ -8,4 +8,4 @@ class Look(AbilityBase):
 
     def perform(self, direction='forward'):
         self.verify_direction(direction)
-        return map(lambda amount: self.space(direction, amount), [1, 2, 3])
+        return [self.space(direction, amount) for amount in [1, 2, 3]]

@@ -10,8 +10,8 @@ class Listen(AbilityBase):
             if unit and unit != self._unit:
                 return unit.position.space()
 
-        units = map(_collect_non_warrior_spaces,
-                    self._unit.position.floor.units)
-        units = filter(lambda x: x, units)
+        units = list(map(_collect_non_warrior_spaces,
+                    self._unit.position.floor.units))
+        units = [x for x in units if x]
 
         return units
